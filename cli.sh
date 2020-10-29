@@ -42,14 +42,18 @@ fi
 brew install awscli
 brew install aws-sam-cli
 brew install bat
+brew install csvkit
 brew install diff-so-fancy
 brew install direnv
+brew install github/gh/gh
 brew install git
+brew install gpg
 brew install jenv
 brew install jq
 brew install micro
 brew install node@12
 brew install nvm
+brew install parquet-tools
 brew install python
 brew install redis
 brew install sbt
@@ -64,6 +68,7 @@ brew cask install docker
 brew cask install insomnia
 brew cask install intellij-idea
 brew cask install iterm2
+brew cask install keepingyouawake
 brew cask install macpass
 brew cask install microsoft-teams
 brew cask install pock
@@ -72,6 +77,7 @@ brew cask install slack
 brew cask install spectacle
 brew cask install spotify
 brew cask install ukelele
+brew cask install visualvm
 brew cask install visual-studio-code
 
 # Brew cask-versions
