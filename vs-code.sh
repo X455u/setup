@@ -17,7 +17,6 @@ code --install-extension ms-python.python --force
 code --install-extension ms-vscode.atom-keybindings --force
 code --install-extension ms-vscode.vscode-typescript-tslint-plugin --force
 code --install-extension redhat.vscode-yaml --force
-code --install-extension sbrink.elm --force
 code --install-extension shardulm94.trailing-spaces --force
 code --install-extension Tobermory.es6-string-html --force
 code --install-extension vscode-icons-team.vscode-icons --force
@@ -33,27 +32,20 @@ cat << EOT > $HOME/Library/Application\ Support/Code/User/settings.json
     "window.zoomLevel": 0,
     "editor.renderWhitespace": "boundary",
     "editor.fontSize": 14,
-    "elm.makeCommand": "./node_modules/.bin/elm-make",
-    "elm.formatCommand": "./node_modules/.bin/elm-format",
-    "elm.compiler": "./node_modules/.bin/elm",
-    "elm.analyseCommand": "./node_modules/.bin/elm-analyse",
     "editor.accessibilitySupport": "off",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "tslint.packageManager": "yarn",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "typescript.implementationsCodeLens.enabled": true,
     "typescript.referencesCodeLens.enabled": true,
     "javascript.referencesCodeLens.enabled": true,
-    "python.dataScience.askForKernelRestart": false,
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
     "gitlens.hovers.currentLine.over": "line",
     "tslint.configFile": "tslint.json",
     "workbench.iconTheme": "vscode-icons",
-    "terminal.integrated.fontFamily": "Source Code Pro for Powerline"
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "jupyter.askForKernelRestart": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    }
 }
 EOT
