@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -e
+
 # code --list-extensions
 # Install extensions
 code --install-extension aws-scripting-guy.cform --force
@@ -9,7 +11,6 @@ code --install-extension eamodio.gitlens --force
 code --install-extension eriklynd.json-tools --force
 code --install-extension esbenp.prettier-vscode --force
 code --install-extension GrapeCity.gc-excelviewer --force
-code --install-extension itryapitsin.Scala --force
 code --install-extension mechatroner.rainbow-csv --force
 code --install-extension mohsen1.prettify-json --force
 code --install-extension ms-azuretools.vscode-docker --force
@@ -49,3 +50,5 @@ cat << EOT > $HOME/Library/Application\ Support/Code/User/settings.json
     }
 }
 EOT
+
+echo "Done!"

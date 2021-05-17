@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -e
+
 # iTerm settings
 
 # Command + left arrow

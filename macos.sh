@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -e
+
 # Mac OS settings
 
 # Dark mode
@@ -58,10 +60,15 @@ defaults write com.apple.controlstrip FullCustomized -array "com.apple.system.gr
 defaults write com.apple.touchbar.agent PresentationModeGlobal -string "fullControlStrip"
 
 # Screenshots directory
-mkdir ~/Pictures/Screenshots
+SCREENSHOT_DIR=~/Pictures/Screenshots
+if [ ! -d $SCREENSHOT_DIR ]; then
+  mkdir ~/Pictures/Screenshots
+fi
 defaults write com.apple.screencapture location -string ~/Pictures/Screenshots
 
 # Add custom keyboard layout
 if [ ! -f ~/Library/Keyboard\ Layouts/FinnishAmerican.keylayout ]; then
   cp files/FinnishAmerican.keylayout ~/Library/Keyboard\ Layouts/FinnishAmerican.keylayout
 fi
+
+echo "Done!"

@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -e
+
 #NAME="My name"
 #EMAIL=my.email@address.com
 
@@ -33,19 +35,19 @@ else
 fi
 
 # Brew
-if test ! $(which brew); then
+if type brew > /dev/null 2>&1; then
+  Echo "Brew installed"
+else
   Echo "Installing Brew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 # Brew
 brew install awscli
-brew install aws-sam-cli
 brew install bat
 brew install csvkit
 brew install diff-so-fancy
 brew install direnv
-brew install github/gh/gh
 brew install git
 brew install gpg
 brew install jenv
@@ -61,28 +63,27 @@ brew install scala
 brew install yarn
 
 # Brew cask
-brew cask install aerial
-brew cask install anaconda
-brew cask install arduino
-brew cask install docker
-brew cask install insomnia
-brew cask install intellij-idea
-brew cask install iterm2
-brew cask install keepingyouawake
-brew cask install macpass
-brew cask install microsoft-teams
-brew cask install pock
-brew cask install postico
-brew cask install slack
-brew cask install spectacle
-brew cask install spotify
-brew cask install ukelele
-brew cask install visualvm
-brew cask install visual-studio-code
+brew install aerial
+brew install anaconda
+brew install arduino
+brew install docker
+brew install google-chrome
+brew install insomnia
+brew install intellij-idea
+brew install iterm2
+brew install keepingyouawake
+brew install macpass
+brew install postico
+brew install slack
+brew install spectacle
+brew install spotify
+brew install ukelele
+brew install visualvm
+brew install visual-studio-code
 
 # Brew cask-versions
 brew tap homebrew/cask-versions
-brew cask install corretto8
+brew install corretto8
 
 # PIP
 pip3 install git-remote-codecommit
@@ -94,14 +95,16 @@ git config --global core.editor micro
 git config --global core.pager "diff-so-fancy | less --tabs=1,5 -RFX"
 git config --global pull.ff only
 
-# Conda
-conda config --set auto_activate_base false
-
 # Oh My Zsh
-RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d ~/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # ZSH autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+AUTO_DIR=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+if [ ! -d $AUTO_DIR ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions $AUTO_DIR
+fi
 
 # Font for Agnoster theme
 curl -fsSL https://github.com/powerline/fonts/raw/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf -o /Library/Fonts/Source\ Code\ Pro\ for\ Powerline.otf
@@ -109,3 +112,5 @@ curl -fsSL https://github.com/powerline/fonts/raw/master/SourceCodePro/Source%20
 if ! grep -q "DO NOT OVERWRITE" ~/.zshrc; then
   cp files/zshrc.sh ~/.zshrc
 fi
+
+echo "Done!"
