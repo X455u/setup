@@ -74,8 +74,8 @@ brew install iterm2
 brew install keepingyouawake
 brew install macpass
 brew install postico
+brew install rectangle
 brew install slack
-brew install spectacle
 brew install spotify
 brew install ukelele
 brew install visualvm
